@@ -18,7 +18,7 @@ const AppStyles = styled.div`
   min-height: 100%;
   display: flex;
   flex-direction: column;
-
+  align-items: stretch;
 `
 
 export default App;

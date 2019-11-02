@@ -5,7 +5,9 @@ import { colors } from 'utilities/styled_helper.js'
 function App() {
   return (
     <HeaderStyles>
-      <h3>Header</h3>
+      <header>
+        <h3>Header</h3>
+      </header> 
     </HeaderStyles>
   );
 }
@@ -16,6 +18,10 @@ const HeaderStyles = styled.div`
   width: 100%;
   background: ${colors.black}
   color: ${colors.white};
+
+  header {
+    max-width: 1400px;
+  }
 `
 
 export default App;
