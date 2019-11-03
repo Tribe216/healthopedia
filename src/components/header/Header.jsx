@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from 'utilities/styled_helper.js'
+import { colors } from 'utilities/styled_helper.js';
+import SearchBar from './SearchBar';
 
-function App() {
+const Header = () => {
   return (
     <HeaderStyles>
       <header>
         <h3>Header</h3>
+        <SearchBar performKeywordSearch={(k) =>{console.log(k)}}/>
       </header> 
     </HeaderStyles>
   );
@@ -24,4 +26,4 @@ const HeaderStyles = styled.div`
   }
 `
 
-export default App;
+export default Header;
