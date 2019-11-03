@@ -1,9 +1,3 @@
-
-export const searchByKeyword = async (keyword) => {
-  const url= new URL('https://healthfinder.gov/api/v2/topicsearch.json');
-  return getResultsFromApi(url, {keyword})
-}
-
 export const searchByDemographic = async (age, sex) => {
   const url= new URL('https://healthfinder.gov/api/v2/myhealthfinder.json');
   return getResultsFromApi(url, {age, sex})

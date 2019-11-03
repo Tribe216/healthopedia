@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from 'utilities/styled_helper.js';
-import SearchBar from './SearchBar';
 
 const Header = ({processKeyword}) => {
   return (
     <HeaderStyles>
       <header>
         <h3>Header</h3>
-        <SearchBar processKeyword={processKeyword} />
       </header> 
     </HeaderStyles>
   );

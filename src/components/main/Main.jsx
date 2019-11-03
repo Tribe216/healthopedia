@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from 'utilities/styled_helper.js'
 import LoadingSpinner from './LoadingSpinner';
-import TopicResults from './TopicResults';
 import DemoResults from './DemoResults';
 import DemoSearch from './DemoSearch';
 
@@ -19,8 +18,6 @@ const Content = ({data, processDemographic }) => {
   } else if (data.Result.Total === '0') {
     content = <p>No results found!</p>
   } else if (queryType === 'myhealthfinder'){
-    content = <DemoResults data={data}/>
-  } else if (queryType === 'topicsearch'){
     content = <DemoResults data={data}/>
   } else {
     content = <p>No results found!</p>
