@@ -68,8 +68,7 @@ class App extends React.Component {
       <AppStyles>
         <Header processKeyword={this.processKeyword}/>
         <Main 
-          clearResults={this.clearResults}
-          updateResults={this.updateResults}
+          processDemographic={this.processDemographic}
           data={this.state.results}
           loading={this.state.loading}
         />

@@ -20,6 +20,7 @@ const HeaderStyles = styled.div`
   width: 100%;
   background: ${colors.black}
   color: ${colors.white};
+  padding: 2rem;
 
   header {
     max-width: 1400px;
