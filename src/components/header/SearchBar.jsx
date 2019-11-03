@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from 'utilities/styled_helper.js';
-import { searchByKeyword } from 'utilities/api.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -23,11 +22,7 @@ class SearchBar extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.searchByKeyword(this.state.searchInput).then(
-      data => {
-        this.props.updateResults(data);
-      }
-    )
+    this.props.processKeyword(this.state.searchInput);
   }
 
   render() {
@@ -63,13 +58,8 @@ const SearchBarStyles = styled.div`
   }
 `
 
-SearchBar.defaultProps = {
-  searchByKeyword
-}
-
 SearchBar.propTypes = {
-  searchByKeyword: PropTypes.func,
-  updateResults: PropTypes.func
+  processKeyword: PropTypes.func
 };
 
 

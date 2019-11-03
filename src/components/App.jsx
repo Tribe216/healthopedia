@@ -47,7 +47,7 @@ class App extends React.Component {
     this.enableLoadingSpinner();
     searchByKeyword(keyword).then(
       data => {
-        this.props.updateResults(data);
+        this.updateResults(data);
         this.disableLoadingSpinner();
       }
     )
@@ -57,7 +57,7 @@ class App extends React.Component {
     this.enableLoadingSpinner();
     searchByDemographic(age,sex).then(
       data => {
-        this.props.updateResults(data);
+        this.updateResults(data);
         this.disableLoadingSpinner();
       }
     )
@@ -66,7 +66,7 @@ class App extends React.Component {
   render() {
     return (
       <AppStyles>
-        <Header updateResults={this.updateResults}/>
+        <Header processKeyword={this.processKeyword}/>
         <Main 
           clearResults={this.clearResults}
           updateResults={this.updateResults}

@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { colors } from 'utilities/styled_helper.js';
 import SearchBar from './SearchBar';
 
-const Header = ({updateResults}) => {
+const Header = ({processKeyword}) => {
   return (
     <HeaderStyles>
       <header>
         <h3>Header</h3>
-        <SearchBar updateResults={updateResults} />
+        <SearchBar processKeyword={processKeyword} />
       </header> 
     </HeaderStyles>
   );
