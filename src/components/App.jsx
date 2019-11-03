@@ -4,14 +4,79 @@ import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
 import Main from 'components/main/Main';
 
-function App() {
-  return (
-    <AppStyles>
-      <Header />
-      <Main />
-      <Footer />
-    </AppStyles>
-  );
+import { 
+  searchByKeyword,
+  searchByDemographic
+} from 'utilities/api.js';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      results: null,
+      loading: false
+    }
+
+    this.updateResults = this.updateResults.bind(this);
+    this.clearResults = this.clearResults.bind(this);
+    this.processKeyword = this.processKeyword.bind(this);
+    this.processDemographic = this.processDemographic.bind(this);
+  }
+
+  updateResults(results) {
+    this.setState({results})
+  }
+
+  clearResults() {
+    this.updateResults(null);
+  }
+
+  setLoadingSpinner(onOff) {
+    this.setState({loading: onOff})
+  }
+
+  enableLoadingSpinner() {
+    this.setLoadingSpinner(true);
+  }
+
+  disableLoadingSpinner() {
+    this.setLoadingSpinner(false);
+  }
+
+  processKeyword(keyword) {
+    this.enableLoadingSpinner();
+    searchByKeyword(keyword).then(
+      data => {
+        this.props.updateResults(data);
+        this.disableLoadingSpinner();
+      }
+    )
+  }
+
+  processDemographic(age, sex) {
+    this.enableLoadingSpinner();
+    searchByDemographic(age,sex).then(
+      data => {
+        this.props.updateResults(data);
+        this.disableLoadingSpinner();
+      }
+    )
+  }
+
+  render() {
+    return (
+      <AppStyles>
+        <Header updateResults={this.updateResults}/>
+        <Main 
+          clearResults={this.clearResults}
+          updateResults={this.updateResults}
+          data={this.state.results}
+          loading={this.state.loading}
+        />
+        <Footer />
+      </AppStyles>
+    );
+  }
 }
 
 const AppStyles = styled.div`

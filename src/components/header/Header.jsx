@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { colors } from 'utilities/styled_helper.js';
 import SearchBar from './SearchBar';
 
-const Header = () => {
+const Header = ({updateResults}) => {
   return (
     <HeaderStyles>
       <header>
         <h3>Header</h3>
-        <SearchBar performKeywordSearch={(k) =>{console.log(k)}}/>
+        <SearchBar updateResults={updateResults} />
       </header> 
     </HeaderStyles>
   );
