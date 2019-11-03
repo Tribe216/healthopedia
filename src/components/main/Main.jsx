@@ -2,22 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from 'utilities/styled_helper.js'
+import LoadingSpinner from './LoadingSpinner';
 
 const Main = props => {
-  const {
+  let {
     data,
     loading
   } = props
 
-  return loading ? (
-    <h1>Loading...</h1>
-  ) : (
+  loading = true;
+
+  return (
     <MainStyles>
       <main>
-        <h3>Main App</h3>
-        <p>
-          {JSON.stringify(data)}
-        </p>
+        {
+          loading ? (
+            <LoadingSpinner />
+          ) : (
+          <p>
+            {JSON.stringify(data)}
+          </p>
+          )
+        }
       </main>
     </MainStyles>
   );
@@ -32,6 +38,7 @@ const MainStyles = styled.div`
   main {
     max-width: 1400px;
     margin: 0 auto;
+    height: 100%;
   }
 `
 
