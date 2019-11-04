@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/header/Header';
 import Main from 'components/main/Main';
+import { colors } from 'utilities/styled_helper.js';
 
 import { 
   searchByDemographic
@@ -52,8 +53,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <AppStyles>
-        <Header processKeyword={this.processKeyword}/>
+      <AppStyles mint={this.state.results === null}>
+        <Header clearResults={this.clearResults}/>
         <Main 
           processDemographic={this.processDemographic}
           data={this.state.results}
@@ -66,9 +67,9 @@ class App extends React.Component {
 
 const AppStyles = styled.div`
   min-height: 100%;
+  background: ${props => props.mint ? colors.lightMint : colors.white};
   display: flex;
   flex-direction: column;
-  align-items: stretch;
 `
 
 export default App;

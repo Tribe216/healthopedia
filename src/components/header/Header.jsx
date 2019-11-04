@@ -1,27 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { colors } from 'utilities/styled_helper.js';
 
-const Header = ({processKeyword}) => {
+const Header = ({clearResults}) => {
   return (
     <HeaderStyles>
       <header>
-        <h3>Header</h3>
+        <h3>HealthBuddy</h3>
+        <FontAwesomeIcon 
+          icon={faSearch} 
+          onClick={clearResults}
+        />
       </header> 
     </HeaderStyles>
   );
 }
 
 const HeaderStyles = styled.div`
-  flex-shrink: 0;
-  height: 100px;
-  width: 100%;
-  background: ${colors.black}
+  background: ${colors.darkTeal}
   color: ${colors.white};
-  padding: 2rem;
-
+  
   header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
     max-width: 1400px;
+    padding: 0 2rem
+    svg:hover {
+      cursor: pointer
+    }
   }
 `
 

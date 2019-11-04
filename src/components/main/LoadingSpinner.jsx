@@ -19,7 +19,6 @@ const LoadingSpinner = () => {
 const LoadingSpinnerStyles = styled.div`
   height:100%;
   width: 100%;
-  background: ${colors.white};
   color: ${colors.gray};
   font-size: 20vw;
   display: flex;

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Resource = (resource) => {
-  console.log(resource)
   return (
     <section>
       <img src={resource.resource.ImageUrl} alt={resource.resource.ImageAlt}/>

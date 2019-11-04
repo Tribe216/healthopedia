@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors } from 'utilities/styled_helper.js'
 import LoadingSpinner from './LoadingSpinner';
 import DemoResults from './DemoResults';
 import DemoSearch from './DemoSearch';
@@ -20,7 +19,7 @@ const Content = ({data, processDemographic }) => {
   } else if (queryType === 'myhealthfinder'){
     content = <DemoResults data={data}/>
   } else {
-    content = <p>No results found!</p>
+    content = <p>Unknown API Error!</p>
   }
 
   return content;
@@ -34,7 +33,7 @@ const Main = props => {
   } = props
 
   return (
-    <MainStyles>
+    <MainStyles mint={data === null}>
       <main>
         {
           loading ? (
@@ -52,16 +51,17 @@ const Main = props => {
 }
 
 const MainStyles = styled.div`
-  flex-grow: 1;
-  flex-shrink: 0;
-  width: 100%;
-  background: ${colors.white}
-  padding: 2rem;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 
   main {
     max-width: 1400px;
     margin: 0 auto;
     height: 100%;
+    padding: 2rem;
+    flex: 1;
   }
 `
 
