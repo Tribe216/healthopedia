@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import SanitizedHTML from 'react-sanitized-html';
 import { groupResourcesByCategory } from 'utilities/helpers.js';
 import ReadMore from 'components/common/ReadMore';
-import { colors } from 'utilities/styled_helper.js';
 
 const Resource = ({resource}) => {
   return (
@@ -53,7 +52,6 @@ const DemoResults = ({data}) => {
 
   return (
     <div>
-      <h4 dangerouslySetInnerHTML={{__html: data.Result.MyHFHeading}}/>
       <div>
         {
           resourcesByGroup.map( group => (
