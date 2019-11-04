@@ -1,4 +1,4 @@
-Healthopedia
+# **Healthopedia**
 
 A toy app to increase preventative health awareness using the API found at https://healthfinder.gov
 
