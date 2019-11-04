@@ -6,7 +6,10 @@ A toy app to increase preventative health awareness using the API found at https
 
 Install NPM 5.2 or higher.
 Run:
+
+`npm install`
 `npm start`
+
 If browser window not loaded automatically, check http://localhost:3000
 
 ##### Additional libraries used:
