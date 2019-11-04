@@ -10,10 +10,10 @@ const Resource = ({resource}) => {
     <ResourceStyles>
       <h2>{resource.Title}</h2>
       <ReadMore>
+        <img src={resource.ImageUrl} alt={resource.ImageAlt}/>
         {
           resource.Sections && resource.Sections.Section.map( (section ,i) => (
             <div key={i}>
-              <img src={resource.ImageUrl} alt={resource.ImageAlt}/>
               <h4>{section.Title}</h4>
               <h6>{section.Description}</h6>
               <SanitizedHTML html={ section.Content } />
