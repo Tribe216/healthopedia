@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import { colors } from 'utilities/styled_helper.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { AppAction } from 'components/common/AppAction';
 
 class ReadMore extends React.Component {
   constructor(props) {
@@ -19,23 +18,13 @@ class ReadMore extends React.Component {
     return this.state.expanded ? (
       this.props.children
     ) : (
-      <ReadMoreStyles>
+      <AppAction tag="div">
         <span onClick={this.expandText}>
           Read More <FontAwesomeIcon icon={faCaretDown}/>
         </span>
-      </ReadMoreStyles>
+      </AppAction>
     )
   }
 }
-
-const ReadMoreStyles = styled.div`
-  color: ${colors.teal}
-  font-weight: bold;
-
-  &:hover {
-    color: ${colors.darkTeal};
-    cursor: pointer;
-  }
-`
 
 export default ReadMore;

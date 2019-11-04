@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { colors } from 'utilities/styled_helper.js';
+import { AppAction } from 'components/common/AppAction';
 
 const Header = ({clearResults, showClearResults}) => {
   return (
@@ -11,10 +12,13 @@ const Header = ({clearResults, showClearResults}) => {
         <h3>HealthBuddy</h3>
         { 
           showClearResults && (
-            <FontAwesomeIcon 
-              icon={faSearch} 
+            <AppAction 
+              color={colors.white}
+              hoverColor={colors.lightMint}
               onClick={clearResults}
-            />
+            >
+              New <FontAwesomeIcon icon={faSearch}/>
+            </AppAction>
           )
         }
       </header> 
