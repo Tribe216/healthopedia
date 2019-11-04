@@ -1,44 +1,79 @@
 import React from 'react';
+import styled from 'styled-components';
+import SanitizedHTML from 'react-sanitized-html';
+import { groupResourcesByCategory } from 'utilities/helpers.js';
+import ReadMore from 'components/common/ReadMore';
+import { colors } from 'utilities/styled_helper.js';
 
-const Resource = (resource) => {
+const Resource = ({resource}) => {
   return (
-    <section>
-      <img src={resource.resource.ImageUrl} alt={resource.resource.ImageAlt}/>
-      <h2>{resource.resource.Title}</h2>
-      {
-        resource.resource.Sections.Section.map( section => (
-          <div key={section.Title}>
-            <h4>{section.Title}</h4>
-            <h6>{section.Description}</h6>
-            <div
-              dangerouslySetInnerHTML={{__html: section.Content}}
+    <ResourceStyles>
+      <h2>{resource.Title}</h2>
+      <ReadMore>
+        {
+          resource.Sections && resource.Sections.Section.map( (section ,i) => (
+            <div key={i}>
+              <img src={resource.ImageUrl} alt={resource.ImageAlt}/>
+              <h4>{section.Title}</h4>
+              <h6>{section.Description}</h6>
+              <SanitizedHTML html={ section.Content } />
+            </div>
+          ))
+        }
+      </ReadMore>
+    </ResourceStyles>
+  )
+}
+
+const ResourceGroup = ({group}) => {
+  return (
+    <ResourceGroupStyles>
+      <div>
+        <h1>
+          <SanitizedHTML html={group.title} />
+        </h1>
+      </div>
+      <div>
+        {
+          group.data.map( resource => (
+            <Resource
+              key={resource.Id}
+              resource={resource} 
             />
-          </div>
-        ))
-      }
-    </section>
+          ))
+        }
+      </div>
+    </ResourceGroupStyles>
   )
 }
 
 const DemoResults = ({data}) => {
-  console.log(data);
-  window.demoData = data;
-  let resources = data.Result.Resources.All.Resource;
+  let resources = data.Result.Resources;
+  let resourcesByGroup = groupResourcesByCategory(resources);
+
   return (
     <div>
-    <h4 dangerouslySetInnerHTML={{__html: data.Result.MyHFHeading}}/>
-    <div>
-      {
-        resources.map( resource => (
-          <Resource
-            key={resource.Id}
-            resource={resource} 
-          />
-        ))
-      }
+      <h4 dangerouslySetInnerHTML={{__html: data.Result.MyHFHeading}}/>
+      <div>
+        {
+          resourcesByGroup.map( group => (
+            <ResourceGroup
+              key={group.title}
+              group={group} 
+            />
+          ))
+        }
+      </div>
     </div>
-    ></div>
   )
 }
+
+const ResourceGroupStyles = styled.div`
+  margin-top: 2rem;
+`
+
+const ResourceStyles = styled.section`
+  padding: 1.5rem 0;
+`
 
 export default DemoResults;

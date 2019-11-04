@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from 'components/common/LoadingSpinner';
 import DemoResults from './DemoResults';
 import DemoSearch from './DemoSearch';
 
