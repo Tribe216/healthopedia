@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SanitizedHTML from 'react-sanitized-html';
 import { groupResourcesByCategory } from 'utilities/helpers.js';
@@ -73,5 +74,9 @@ const ResourceGroupStyles = styled.div`
 const ResourceStyles = styled.section`
   padding: 1.5rem 0;
 `
+
+DemoResults.propTypes = {
+  data: PropTypes.object
+};
 
 export default DemoResults;

@@ -72,6 +72,7 @@ Main.defaultProps = {
 Main.propTypes = {
   data: PropTypes.object,
   processDemographic: PropTypes.func,
+  loading: PropTypes.bool
 };
 
 export default Main;

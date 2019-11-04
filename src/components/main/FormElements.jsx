@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from 'utilities/styled_helper.js';
 
@@ -20,7 +21,7 @@ export const SexSelect = ({handleChange, currentValue}) => (
   />
 )
 
-const FormSelect= ({name, values, handleChange, currentValue}) => (
+const FormSelect = ({name, values, handleChange, currentValue}) => (
   <SelectStyle
     onChange={handleChange}
     name={name}
@@ -46,3 +47,20 @@ const SelectStyle = styled.select`
   background: ${colors.lightMint};
   text-align: center;
 `
+
+FormSelect.propTypes = {
+  name: PropTypes.string,
+  values: PropTypes.array,
+  currentValue: PropTypes.string,
+  handleChange: PropTypes.func,
+};
+
+AgeSelect.propTypes = {
+  currentValue: PropTypes.string,
+  handleChange: PropTypes.func,
+};
+
+SexSelect.propTypes = {
+  currentValue: PropTypes.string,
+  handleChange: PropTypes.func,
+};
