@@ -3,8 +3,11 @@ import { css } from 'styled-components';
 export const colors = {
   white: '#ffffff',
   black: '#000000',
-  gray: '#aaaaaa'
-}
+  gray: '#aaaaaa',
+  lightMint: '#e7ffe7',
+  darkTeal: '#004c4c',
+  teal: '#008d8d'
+};
 
 export const breakpoints = {
   xs: 0,
