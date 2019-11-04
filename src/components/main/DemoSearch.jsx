@@ -62,7 +62,7 @@ class DemoSearch extends React.Component {
     return (
       <DemoSearchStyles>
         <h2>
-          Welcome to HealthBuddy!
+          Welcome to Healthopedia!
         </h2>
         <h2>
           Please enter your age and sex below for personalized recommendations.

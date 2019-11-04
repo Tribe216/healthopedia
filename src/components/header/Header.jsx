@@ -10,7 +10,7 @@ const Header = ({clearResults, showClearResults}) => {
   return (
     <HeaderStyles>
       <header>
-        <h3>HealthBuddy</h3>
+        <h3>Healthopedia</h3>
         { 
           showClearResults && (
             <AppAction 
