@@ -54,7 +54,10 @@ class App extends React.Component {
   render() {
     return (
       <AppStyles mint={this.state.results === null}>
-        <Header clearResults={this.clearResults}/>
+        <Header
+          showClearResults={!!this.state.results}
+          clearResults={this.clearResults}
+        />
         <Main 
           processDemographic={this.processDemographic}
           data={this.state.results}
@@ -70,6 +73,12 @@ const AppStyles = styled.div`
   background: ${props => props.mint ? colors.lightMint : colors.white};
   display: flex;
   flex-direction: column;
+
+  font-family: 'Open Sans', sans-serif;
+
+  h1 {
+    color: ${colors.teal}
+  }
 `
 
 export default App;

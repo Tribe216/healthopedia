@@ -4,15 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { colors } from 'utilities/styled_helper.js';
 
-const Header = ({clearResults}) => {
+const Header = ({clearResults, showClearResults}) => {
   return (
     <HeaderStyles>
       <header>
         <h3>HealthBuddy</h3>
-        <FontAwesomeIcon 
-          icon={faSearch} 
-          onClick={clearResults}
-        />
+        { 
+          showClearResults && (
+            <FontAwesomeIcon 
+              icon={faSearch} 
+              onClick={clearResults}
+            />
+          )
+        }
       </header> 
     </HeaderStyles>
   );
